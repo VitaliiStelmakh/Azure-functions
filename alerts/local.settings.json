@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fileblob123;AccountKey=N5AguRiqUwPmU97UIiCrbDAhYHhl1FOsXf7RqifV7QCnUyxYQkkbyiQ29tv4bC4gRKdfnjLqp0iw+AStwiLcQQ==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "fileblob123_STORAGE": "DefaultEndpointsProtocol=https;AccountName=fileblob123;AccountKey=N5AguRiqUwPmU97UIiCrbDAhYHhl1FOsXf7RqifV7QCnUyxYQkkbyiQ29tv4bC4gRKdfnjLqp0iw+AStwiLcQQ==;EndpointSuffix=core.windows.net",
+    "DISCORD_WEBHOOK_URL": "https://discord.com/api/webhooks/1237706864897032193/HAAUgkvxcdTeLtAnYmCQd9QMjZdwv4y7lodkAdEYohTDrD0O6g_noI0zhKlWZNQIuH6H",
+    "SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/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"
+  }
+}
