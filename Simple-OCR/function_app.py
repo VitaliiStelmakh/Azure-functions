@@ -3,7 +3,7 @@ import logging
 import os
 from azure.storage.fileshare import ShareFileClient
 from azure.storage.blob import BlobClient
-from azure.ai.formrecognizer import DocumentAnalysisClient
+
 from azure.core.credentials import AzureKeyCredential
 import json
 
