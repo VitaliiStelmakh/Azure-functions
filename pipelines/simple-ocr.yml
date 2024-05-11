@@ -1,19 +1,57 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
 trigger:
-- main
+  branches:
+    include:
+    - main  
+  paths:
+    include:
+    - Simple-OCR/**
+    exclude:
+      - "*"
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+variables:
+  - group: OCR_Environment_Var
+
+steps:
+
+- task: AzureAppServiceSettings@1
+  inputs:
+    azureSubscription: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
+    appName: 'petro'
+    resourceGroupName: 'petro_group'
+    appSettings: |
+      [
+        {
+          "name": "STORAGE_CONNECTION_STRING",
+          "value": "$(STORAGE_CONNECTION_STRING)"
+        },
+        {
+          "name": "FILE_SHARE_NAME",
+          "value": "$(FILE_SHARE_NAME)"
+        },
+        {
+          "name": "BLOB_CONTAINER_NAME",
+          "value": "$(BLOB_CONTAINER_NAME)"
+        },
+        {
+          "name": "FORM_RECOGNIZER_ENDPOINT",
+          "value": "$(FORM_RECOGNIZER_ENDPOINT)"
+        },
+        {
+          "name": "FORM_RECOGNIZER_API_KEY",
+          "value": "$(FORM_RECOGNIZER_API_KEY)"
+        }
+      ]
+
+- task: AzureFunctionApp@2
+  inputs:
+    connectedServiceNameARM: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
+    appType: 'functionAppLinux'
+    appName: 'petro'
+    package: '$(System.DefaultWorkingDirectory)/Simple-OCR'
+    runtimeStack: 'PYTHON|3.10'
+  
