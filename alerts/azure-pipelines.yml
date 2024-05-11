@@ -25,11 +25,11 @@ steps:
       [
         {
           "name": "DISCORD_WEBHOOK_URL",
-          "value": "https://discord.com/api/webhooks/1237706864897032193/HAAUgkvxcdTeLtAnYmCQd9QMjZdwv4y7lodkAdEYohTDrD0O6g_noI0zhKlWZNQIuH6H",
+          "value": "https://discord.com/api/webhooks/1237706864897032193/HAAUgkvxcdTeLtAnYmCQd9QMjZdwv4y7lodkAdEYohTDrD0O6g_noI0zhKlWZNQIuH6H"
         },
         {
           "name": "fileblob123_STORAGE",
-          "value": "DefaultEndpointsProtocol=https;AccountName=fileblob123;AccountKey=N5AguRiqUwPmU97UIiCrbDAhYHhl1FOsXf7RqifV7QCnUyxYQkkbyiQ29tv4bC4gRKdfnjLqp0iw+AStwiLcQQ==;EndpointSuffix=core.windows.net",
+          "value": "DefaultEndpointsProtocol=https;AccountName=fileblob123;AccountKey=N5AguRiqUwPmU97UIiCrbDAhYHhl1FOsXf7RqifV7QCnUyxYQkkbyiQ29tv4bC4gRKdfnjLqp0iw+AStwiLcQQ==;EndpointSuffix=core.windows.net"
         }
       ]
 
