@@ -27,15 +27,15 @@ steps:
       [
         {
           "name": "DISCORD_WEBHOOK_URL",
-          "value": $(DISCORD_WEBHOOK_URL)
+          "value": "$(DISCORD_WEBHOOK_URL)"
         },
         {
           "name": "fileblob123_STORAGE",
-          "value": $(fileblob123_STORAGE)
+          "value": "$(fileblob123_STORAGE)"
         },
         {
           "name": "SLACK_WEBHOOK_URL",
-          "value": $(SLACK_WEBHOOK_URL)
+          "value": "$(SLACK_WEBHOOK_URL)"
         }
       ]
 
