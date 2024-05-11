@@ -21,8 +21,8 @@ steps:
 - task: AzureAppServiceSettings@1
   inputs:
     azureSubscription: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
-    appName: 'arsen'
-    resourceGroupName: 'arsen_group'
+    appName: 'valera'
+    resourceGroupName: 'valera_group'
     appSettings: |
       [
         {
@@ -51,7 +51,7 @@ steps:
   inputs:
     connectedServiceNameARM: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
     appType: 'functionAppLinux'
-    appName: 'arsen'
+    appName: 'valera'
     package: '$(System.DefaultWorkingDirectory)/Simple-OCR'
-    runtimeStack: 'PYTHON|3.10'
+    runtimeStack: 'PYTHON|3.11'
   
