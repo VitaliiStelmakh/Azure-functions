@@ -15,7 +15,7 @@ pool:
 
 variables:
   - group: OCR_Environment_Var
-  - name: App_name                 # Define the variable outside the group
+  - name: App_name               
     value: 'valera'
   - name: Group_name
     value: 'valera_group'
