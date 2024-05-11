@@ -5,7 +5,7 @@ trigger:
     - main  
   paths:
     include:
-    - Simple-OCR/**
+    - Simpleazazaz/**
     exclude:
       - "*"
 
@@ -27,7 +27,7 @@ steps:
     addToPath: true
 
 - script: |
-    cd Simple-OCR
+    cd Simpleazazaz
     python -m pip install --upgrade pip
     pip install -r requirements.txt
   displayName: 'Install dependencies'
@@ -71,6 +71,6 @@ steps:
     connectedServiceNameARM: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
     appType: 'functionAppLinux'
     appName: 'valera'
-    package: '$(System.DefaultWorkingDirectory)/Simple-OCR/**/*.zip'
+    package: '$(System.DefaultWorkingDirectory)/Simpleazazaz/**/*.zip'
     runtimeStack: 'PYTHON|3.11'
     deploymentMethod: 'auto'
