@@ -13,7 +13,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
     try:
         # Environment variables
-        connection_string = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
+        connection_string = os.getenv('STORAGE_CONNECTION_STRING')
         file_share_name = os.getenv('FILE_SHARE_NAME')
         blob_container_name = os.getenv('BLOB_CONTAINER_NAME')
         endpoint = os.getenv('FORM_RECOGNIZER_ENDPOINT')
