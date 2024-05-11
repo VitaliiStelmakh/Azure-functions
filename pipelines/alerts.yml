@@ -21,8 +21,8 @@ steps:
 - task: AzureAppServiceSettings@1
   inputs:
     azureSubscription: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
-    appName: 'valera'
-    resourceGroupName: 'valera_group'
+    appName: 'petro'
+    resourceGroupName: 'petro_group'
     appSettings: |
       [
         {
@@ -43,7 +43,7 @@ steps:
   inputs:
     connectedServiceNameARM: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
     appType: 'functionAppLinux'
-    appName: 'valera'
+    appName: 'petro'
     package: '$(System.DefaultWorkingDirectory)/alerts'
     runtimeStack: 'PYTHON|3.10'
   
