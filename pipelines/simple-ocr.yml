@@ -33,6 +33,7 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
+    cd Simple-OCR
     func pack
   displayName: 'Pack Function'
 
