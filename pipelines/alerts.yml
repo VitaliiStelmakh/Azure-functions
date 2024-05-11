@@ -15,14 +15,17 @@ pool:
 
 variables:
   - group: OCR_Environment_Var
-
+  - name: App_name
+    value: 'notifyapps'
+  - name: Group_name
+    value: 'notifyapps_group'
 steps:
 
 - task: AzureAppServiceSettings@1
   inputs:
     azureSubscription: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
-    appName: 'qqqqqqwwwww'
-    resourceGroupName: 'qqqqqqwwwww_group'
+    appName: $(App_name)
+    resourceGroupName: $(Group_name)
     appSettings: |
       [
         {
@@ -43,7 +46,7 @@ steps:
   inputs:
     connectedServiceNameARM: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
     appType: 'functionAppLinux'
-    appName: 'qqqqqqwwwww'
+    appName: $(App_name)
     package: '$(System.DefaultWorkingDirectory)/alerts'
     runtimeStack: 'PYTHON|3.11'
   
