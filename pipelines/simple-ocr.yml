@@ -16,7 +16,18 @@ pool:
 variables:
   - group: OCR_Environment_Var
 
+
 steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+
+- script: |
+    cd Simple-OCR
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
 
 - task: AzureAppServiceSettings@1
   inputs:
