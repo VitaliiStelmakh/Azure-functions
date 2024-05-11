@@ -18,6 +18,9 @@ variables:
 
 
 steps:
+- task: FuncToolsInstaller@0
+  inputs:
+    version: 'latest'
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.x'
@@ -61,8 +64,8 @@ steps:
           "value": "$(FORM_RECOGNIZER_API_KEY)"
         }
       ]
-
-- task: AzureFunctionApp@1
+  
+- task: AzureFunctionApp@2
   inputs:
     connectedServiceNameARM: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
     appType: 'functionAppLinux'
@@ -70,4 +73,3 @@ steps:
     package: '$(System.DefaultWorkingDirectory)/Simple-OCR/**/*.zip'
     runtimeStack: 'PYTHON|3.11'
     deploymentMethod: 'auto'
-  
