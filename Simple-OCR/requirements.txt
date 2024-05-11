@@ -6,4 +6,3 @@ azure-functions
 azure-storage-file-share
 azure-storage-blob
 azure-ai-formrecognizer
-daasdasdfasfsadfsadfasd
