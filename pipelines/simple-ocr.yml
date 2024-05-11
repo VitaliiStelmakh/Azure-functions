@@ -15,7 +15,10 @@ pool:
 
 variables:
   - group: OCR_Environment_Var
-
+  - name: App_name                 # Define the variable outside the group
+    value: 'valera'
+  - name: Group_name
+    value: 'valera_group'
 
 steps:
 - task: FuncToolsInstaller@0
@@ -40,15 +43,15 @@ steps:
     inlineScript: |
       cd Simple-OCR
       func pack
-      func azure functionapp publish valera --python
+      func azure functionapp publish $(App_name) --python
   displayName: 'Deploy Function App'
 
 
 - task: AzureAppServiceSettings@1
   inputs:
     azureSubscription: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
-    appName: 'valera'
-    resourceGroupName: 'valera_group'
+    appName: '$(App_name)'
+    resourceGroupName: '$(Group_name)'
     appSettings: |
       [
         {
