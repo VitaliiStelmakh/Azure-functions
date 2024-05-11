@@ -45,5 +45,5 @@ steps:
     appType: 'functionAppLinux'
     appName: 'valera'
     package: '$(System.DefaultWorkingDirectory)/alerts'
-    runtimeStack: 'PYTHON|3.10'
+    runtimeStack: 'PYTHON|3.11'
   
