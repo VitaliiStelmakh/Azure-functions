@@ -1,13 +1,20 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
 trigger:
-- main
+  branches:
+    include:
+    - main  
+  paths:
+    include:
+    - alerts/**
+    exclude:
+      - "*"
 
 pool:
   vmImage: ubuntu-latest
+
+
+variables:
+  - group: OCR_Environment_Var
 
 steps:
 
@@ -20,11 +27,15 @@ steps:
       [
         {
           "name": "DISCORD_WEBHOOK_URL",
-          "value": "https://discord.com/api/webhooks/1237706864897032193/HAAUgkvxcdTeLtAnYmCQd9QMjZdwv4y7lodkAdEYohTDrD0O6g_noI0zhKlWZNQIuH6H"
+          "value": $(DISCORD_WEBHOOK_URL)
         },
         {
           "name": "fileblob123_STORAGE",
-          "value": "DefaultEndpointsProtocol=https;AccountName=fileblob123;AccountKey=N5AguRiqUwPmU97UIiCrbDAhYHhl1FOsXf7RqifV7QCnUyxYQkkbyiQ29tv4bC4gRKdfnjLqp0iw+AStwiLcQQ==;EndpointSuffix=core.windows.net"
+          "value": $(fileblob123_STORAGE)
+        },
+        {
+          "name": "SLACK_WEBHOOK_URL",
+          "value": $(SLACK_WEBHOOK_URL)
         }
       ]
 
