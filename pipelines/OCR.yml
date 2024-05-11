@@ -15,14 +15,32 @@ pool:
 
 variables:
   - group: OCR_Environment_Var
+  - name: App_name                 # Define the variable outside the group
+    value: 'pdfocrjson'
+  - name: Group_name
+    value: 'pdfocrjson_group'
 
 steps:
+- task: FuncToolsInstaller@0
+  inputs:
+    version: 'latest'
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.11'
+    addToPath: true
+
+- script: |
+    cd Simple-OCR
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
 
 - task: AzureAppServiceSettings@1
   inputs:
     azureSubscription: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
-    appName: 'petro'
-    resourceGroupName: 'petro_group'
+    appName: '$(App_name)'
+    resourceGroupName: '$(Group_name)'
     appSettings: |
       [
         {
@@ -47,11 +65,17 @@ steps:
         }
       ]
 
-- task: AzureFunctionApp@2
+- task: AzureCLI@2
   inputs:
-    connectedServiceNameARM: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
-    appType: 'functionAppLinux'
-    appName: 'petro'
-    package: '$(System.DefaultWorkingDirectory)/src'
-    runtimeStack: 'PYTHON|3.10'
+    azureSubscription: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      cd src
+      func pack
+      func azure functionapp publish $(App_name) --python
+  displayName: 'Deploy Function App'
+
+
+
   
