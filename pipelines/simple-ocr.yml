@@ -54,4 +54,5 @@ steps:
     appName: 'valera'
     package: '$(System.DefaultWorkingDirectory)/Simple-OCR'
     runtimeStack: 'PYTHON|3.11'
+    deploymentMethod: 'auto'
   
