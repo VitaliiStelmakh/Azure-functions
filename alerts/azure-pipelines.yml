@@ -11,11 +11,6 @@ pool:
 
 steps:
 
-
-- task: FuncToolsInstaller@0
-  inputs:
-    version: 'latest'
-
 - task: AzureAppServiceSettings@1
   inputs:
     azureSubscription: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
