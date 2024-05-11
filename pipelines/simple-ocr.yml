@@ -29,6 +29,10 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
+- script: |
+    func pack
+  displayName: 'Pack Function'
+
 - task: AzureAppServiceSettings@1
   inputs:
     azureSubscription: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
@@ -58,12 +62,12 @@ steps:
         }
       ]
 
-- task: AzureFunctionApp@2
+- task: AzureFunctionApp@1
   inputs:
     connectedServiceNameARM: 'Azure for Students(12c692a0-00e1-447a-8d87-2712018a0472)'
     appType: 'functionAppLinux'
     appName: 'valera'
-    package: '$(System.DefaultWorkingDirectory)/Simple-OCR'
+    package: '$(System.DefaultWorkingDirectory)/Simple-OCR/**/*.zip'
     runtimeStack: 'PYTHON|3.11'
     deploymentMethod: 'auto'
   
